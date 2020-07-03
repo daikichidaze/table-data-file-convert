@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ChatbotTestFileconversion
 {
@@ -21,9 +22,9 @@ namespace ChatbotTestFileconversion
             {
                 inputFileName = args[0];
                 outputFileName = args[1];
-                inputFileExtention = args[2];
-                outputFileExtention = args[3];
 
+                inputFileExtention = inputFileName.Split('.').Last();
+                outputFileExtention = outputFileName.Split('.').Last();
             }
             catch (ArgumentException ex)
             {
