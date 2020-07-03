@@ -33,6 +33,7 @@ namespace ChatbotTestFileconversion
 
             string inputSplitter = SelectSplitter(inputFileExtention);
             string outputSplitter = SelectSplitter(outputFileExtention);
+
             ConvertTableData(inputFileName, outputFileName, inputSplitter, outputSplitter);
         }
 
@@ -72,6 +73,7 @@ namespace ChatbotTestFileconversion
             }
             catch (Exception ex)
             {
+                System.Console.WriteLine(Path.Combine(strCurrentDirectry, argInputFileName));
                 System.Console.WriteLine(ex);
                 throw;
             }
@@ -81,7 +83,7 @@ namespace ChatbotTestFileconversion
         {
             try
             {
-                using (var sw = new StreamWriter(argOutputFileName, false))
+                using (var sw = new StreamWriter(argOutputFileName, false, System.Text.Encoding.UTF8))
                 {
                     foreach (var content in argTableContents)
                     {
@@ -91,6 +93,7 @@ namespace ChatbotTestFileconversion
             }
             catch (Exception ex)
             {
+                System.Console.WriteLine(argOutputFileName);
                 System.Console.WriteLine(ex);
                 throw;
             }
